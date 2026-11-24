@@ -1,0 +1,20 @@
+# Spider-Man AR Frame - Dependencies
+# Tested with Python 3.10.11 on Windows
+#
+# Compatibility Matrix (resolved):
+#   mediapipe 0.10.9  requires opencv-contrib-python (NOT opencv-python)
+#   opencv-contrib-python 4.9.0.80 → stable with Python 3.10; includes cv2
+#   numpy 1.26.4 → last 1.x release, fully compatible with mediapipe 0.10.x
+#
+# IMPORTANT: Use opencv-contrib-python, NOT opencv-python
+#   mediapipe 0.10.9 declares opencv-contrib-python as a dependency.
+#   Both packages expose the same `cv2` module — contrib just adds extra modules.
+#   Having both installed simultaneously causes a conflict; use contrib only.
+#
+# DO NOT upgrade mediapipe beyond 0.10.x — the legacy Solutions API
+# (mediapipe.solutions.hands, mediapipe.solutions.face_detection) is used here
+# and was removed in mediapipe 0.11+
+
+opencv-contrib-python==4.9.0.80
+mediapipe==0.10.9
+numpy==1.26.4
